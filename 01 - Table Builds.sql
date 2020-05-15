@@ -1,0 +1,138 @@
+create table PSITOJXP.all_adjustments_business_input (include_adj_ind char(1),POLICY_NUMBER  char(15),trx_code char(4),EFFECTIVE_DATE date,trans_id char(4),amount_paid dec(11,2),AGENT_ID char(10), earned_agent_id char(10),file_code dec(5,0),paid_agent_profile char(3),writing_agent_id char(10), writing_agent_pro char(3),earned_agent_pro char(3)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_Reportable_ADJ_BEFORE_distinct (include_adj_ind char(1),POLICY_NUMBER CHAR(15),TRX_CODE CHAR(4), EFFECTIVE_DaTE DATE,TRANS_ID CHAR(4), AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),EARNED_AGENT_ID CHAR(10),file_code dec(5,0)) IN DATABASE PSITDJXP ;
+CREATE TABLE PSITOJXP.ALL_Reportable_ADJ_BEFORE (include_adj_ind char(1),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4) 
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), REAL_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE  INDEX PSITOJXP.allbusadj1  ON PSITOJXP.all_adjustments_business_input (policy_number,agent_id,effective_dAte,amount_paid,trx_code) ;
+
+CREATE TABLE PSITOJXP.TERMS_INIT (POLICY_NUMBER CHAR(15)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.TERMS_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE,COMM_OPTION CHAR(4), TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.TERMS_AFTER (POLICY_NUMBER CHAR(15),orig_policy_number char (10),COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE,COMM_OPTION CHAR(4), TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.SV_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2),AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.SV_AFTER (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2), policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1), user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id  char(10),earned_agent_pro char(3), earned_agent_level int,writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+
+CREATE TABLE PSITOJXP.premS_INIT (POLICY_NUMBER CHAR(15)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.premS_INIT_ISS2 (POLICY_NUMBER CHAR(15)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.premS_INIT_ISS11B4 (POLICY_NUMBER CHAR(15)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.premS_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE,COMM_OPTION CHAR(4), TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.premS_AFTER (POLICY_NUMBER CHAR(15),orig_policy_number char (10),COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE,COMM_OPTION CHAR(4), TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.AE_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2),AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.AE_AFTER (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2), policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1), user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), REAL_AMOUNT_PAID DEC(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id  char(10),earned_agent_pro char(3), earned_agent_level int,writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.CPKS_INIT (POLICY_NUMBER CHAR(15)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.CPKS_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3), FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE,COMM_OPTION CHAR(4), TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40)) IN DATABASE PSITDJXP ;
+CREATE TABLE PSITOJXP.AJ_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+CREATE TABLE PSITOJXP.AX_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.CPKSAE_BEFORE (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_AMOUNT_PAID DEC(11,2), AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+CREATE TABLE PSITOJXP.all_adj_before (POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),adj_description char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), REAL_AMOUNT_PAID DEC(11,2),  AMOUNT_PAID DEC(11,2),AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_BEFORE (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),ADJ_DESCRIPTION char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_AFTER(issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4),real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_BEFORE_tin (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),ADJ_DESCRIPTION char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10),earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_AFTER_tin (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4),real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10), earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_BEFORE_current_channel (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),ADJ_DESCRIPTION char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10),earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1),paid_agent_current_channel char(6)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_AFTER_current_channel (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4),real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10), earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1),paid_agent_current_channel char(6)) IN DATABASE PSITDJXP ;
+CREATE TABLE PSITOJXP.ALL_BEFORE_fix_status (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),ADJ_DESCRIPTION char(40),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4), real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10),earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1),paid_agent_current_channel char(6)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.ALL_AFTER_fix_status (issue_ind char(4),POLICY_NUMBER CHAR(15),orig_policy_number char (10),CALYEAR SMALLINT,COVERAGE_PLAN_CODE CHAR(20),ISSUE_STATE char(3),FILE_CODE DEC(5,0),TRX_CODE CHAR(4), EFFECTIVE_DTE DATE, POLICY_EFFECT_DATE DATE, COMM_OPTION CHAR(4)
+  ,TRX_AMOUNT DEC(11,2),policy_status char(1),orig_admin_sys char(1),duration int,premium_category char(1),user_adj_ind char(1),PAYMENT_EFFEC_DATE DATE, PAYMENT_FILE_CODE DEC(5,0),TRANS_ID CHAR(4),real_amount_paid dec(11,2),AMOUNT_PAID DEC(11,2), AGENT_ID CHAR(10),PAID_AGENT_PROFILE CHAR(3), earned_agent_id char(10),earned_agent_pro char(3), earned_agent_level int, writing_agent_id char(10), writing_agent_pro char(3),sa_code char(6),pc_code char(6),earned_agent_channel char(6), earned_agent_apr_Status char(1), earned_APR_term_reason char(2), earned_agent_acr_status char(1), earned_ACR_term_reason char(2),paid_agent_channel char(6), paid_agent_apr_Status char(1),paid_APR_term_reason char(2), paid_agent_acr_status char(1), paid_agent_term_reason char(2)
+  ,ISSUE1_1B_4_IND char(1),issue2_ind char(1), issue3_ind char(1), issue3B_ind char(1), payment_method char(1),REPLACEMENT_TYPE CHAR(1), STAT_COMP_code CHAR (3), ACCOUNTING_CODE CHAR (3),paid_agent_tin char(10), earned_agent_tin char(10),paid_agent_employee_ind char(1),earned_agent_employee_ind char(1),paid_agent_current_channel char(6)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.Remediation_Net_Financial_Report ( AGENT_ID CHAR(10),earned_agent_id  char(10),CALYEAR SMALLINT,paid_agent_tin char(10),paid_Agent_employee_ind char(1)
+   , earned_agent_tin char(10),earned_agent_employee_ind char(1), PAID_AGENT_CURRENT_CHANNEL char(6),earned_agent_apr_Status char(1), earned_APR_term_reason char(2),paid_agent_apr_Status char(1), paid_APR_term_reason char(2),BEFORE_TOTAL DEC(11,2), AFTER_TOTAL DEC(11,2), NET_FINANCIAL_TOTAL  DEC(11,2)) IN DATABASE PSITDJXP ;
+
+CREATE TABLE PSITOJXP.Remediation_Net_Financial_Report_NAME ( AGENT_ID CHAR(10),paid_agent_tin char(10),paid_agent_employee_ind char(1),PAID_AGENT_CURRENT_CHANNEL char(6),payment_method char(1),paid_agent_apr_Status char(1), paid_APR_term_reason char(2),earned_agent_id  char(10),earned_agent_tin char(10),earned_agent_employee_ind char(1),earned_agent_apr_Status char(1), earned_APR_term_reason char(2),CALYEAR SMALLINT,paid_CORPORATE_NAME CHAR(80),paid_LAST_NAME CHAR(35), paid_FIRST_NAME CHAR(20), earned_CORPORATE_NAME CHAR(80),earned_LAST_NAME CHAR(35), earned_FIRST_NAME CHAR(20),BEFORE_TOTAL DEC(11,2), AFTER_TOTAL DEC(11,2), NET_FINANCIAL_TOTAL  DEC(11,2)) IN DATABASE PSITDJXP ;
+
+create table PSITOJXP.all_adjustments (AGENT_ID char(10), earned_agent_number char(13),paid_agent_profile char(3),writing_agent_id char(10), writing_agent_pro char(3),REVERSAL_CODE  char(1), DEBIT_CREDIT_CODE char(1),POLICY_NUMBER  char(15),MISC_DESCRIPTION char (45),REAL_AMOUNT_PAID dec(11,2),AMOUNT_PAID dec(11,2),TRANS_ID char(4),EFFECTIVE_DTE date) IN DATABASE PSITDJXP ;
+create table PSITOJXP.all_remed_adjustments (AGENT_ID char(10), earned_agent_id char(10), earned_agent_profile char(3),paid_agent_profile char(3),writing_agent_id char(10), writing_agent_pro char(3),REVERSAL_CODE  char(1), DEBIT_CREDIT_CODE char(1),POLICY_NUMBER  char(15),MISC_DESCRIPTION char (45),REAL_AMOUNT_PAID dec(11,2),AMOUNT_PAID dec(11,2),TRANS_ID char(4),EFFECTIVE_DTE date) IN DATABASE PSITDJXP ;
+
+CREATE  INDEX PSITOJXP.allremagt1  ON PSITOJXP.all_remed_adjustments (AGENT_ID, policy_number);
+
+CREATE TABLE PSITOJXP.all_remed_pols_agt (POLICY_NUMBER CHAR(15),agent_id char(10)) IN DATABASE PSITDJXP ;
+
+CREATE  INDEX PSITOJXP.allpol1  ON PSITOJXP.all_remed_pols_agt (AGENT_ID, policy_number);
+
+create table PSITOJXP.all_remed_adjustments_final (AGENT_ID char(10), earned_agent_id char(10), earned_agent_profile char(3),paid_agent_profile char(3),writing_agent_id char(10), writing_agent_pro char(3),REVERSAL_CODE  char(1), DEBIT_CREDIT_CODE char(1),POLICY_NUMBER  char(15),MISC_DESCRIPTION char (45),REAL_AMOUNT_PAID dec(11,2),AMOUNT_PAID DEC(11,2) ,TRANS_ID char(4),EFFECTIVE_DTE date) IN DATABASE PSITDJXP ;
+
+
+-- Adjustment Tables
+--DROP TABLE PSITOJXP.all_adjustments; 
+--DROP TABLE PSITOJXP.all_remed_adjustments; 
+--DROP TABLE PSITOJXP.all_remed_pols_agt;
+--DROP TABLE PSITOJXP.all_remed_adjustments_final;
+--drop  INDEX PSITOJXP.alladj1;
+--DROP TABLE PSITOJXP.AX_BEFORE;
+--DROP TABLE PSITOJXP.AJ_BEFORE;
+
+--Adjustment Tables
+--DROP TABLE PSITOJXP.CPKS_BEFORE;
+--DROP TABLE PSITOJXP.CPKS_INIT;
+--DROP TABLE PSITOJXP.CPKSAE_BEFORE;
+--DROP TABLE PSITOJXP.all_adj_before;
+
+--Termination Tables
+--DROP TABLE PSITOJXP.TERMS_INIT;
+--DROP TABLE PSITOJXP.TERMS_BEFORE;
+--DROP TABLE PSITOJXP.TERMS_AFTER;
+--DROP TABLE PSITOJXP.SV_BEFORE;
+--DROP TABLE PSITOJXP.SV_AFTER; 
+--drop TABLE PSITOJXP.ALL_Reportable_ADJ_BEFORE;
+--drop TABLE PSITOJXP.ALL_Reportable_ADJ_BEFORE_distinct;
+--drop table PSITOJXP.all_adjustments_business_input 
+--Premium Tables
+--DROP TABLE PSITOJXP.PREMS_BEFORE;
+--DROP TABLE PSITOJXP.PREMS_INIT;
+--DROP TABLE PSITOJXP.PREMS_INIT_ISS2;
+--DROP TABLE PSITOJXP.PREMS_INIT_ISS11B4;
+--DROP TABLE PSITOJXP.PREMS_AFTER;
+--DROP TABLE PSITOJXP.AE_BEFORE;
+--DROP TABLE PSITOJXP.AE_AFTER; 
+
+--Total Tables
+--DROP TABLE PSITOJXP.ALL_BEFORE; 
+--DROP TABLE PSITOJXP.ALL_AFTER; 
+--DROP TABLE PSITOJXP.ALL_BEFORE_TIN; 
+--DROP TABLE PSITOJXP.ALL_AFTER_TIN; 
+--DROP TABLE PSITOJXP.Remediation_Net_Financial_Report; 
+--DROP TABLE PSITOJXP.Remediation_Net_Financial_Report_NAME; 
